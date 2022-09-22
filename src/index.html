@@ -8,6 +8,73 @@
     <title>FE Template</title>
   </head>
   <body>
-    FE Template
+    <div class="container">
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-danger">
+            <div class="contant">
+              <h1 class="title is-1 has-text-centered">Converter</h1>
+
+              <form action="#" class="selector-form">
+                <div class="selector-item">
+                  <div class="select">
+                    <select class="selector1 selector">
+                      <option>метр, m</option>
+                      <option>сантиметр, cm</option>
+                      <option>дюйм, in</option>
+                      <option>фут, ft</option>
+                    </select>
+                  </div>
+      
+                  <input class="input input1" type="text" placeholder="Введите значение">
+              
+                </div>
+    
+                <button class="button is-primary" type="submit">>>></button>
+      
+                <div class="selector-item">
+                  <input class="input input2" type="text">
+                  
+                  <div class="select">
+                    <select class="selector2 selector">
+                      <option>метр, m</option>
+                      <option>сантиметр, cm</option>
+                      <option>дюйм, in</option>
+                      <option>фут, ft</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </article>
+        </div>
+
+        <div class="tile is-parent is-4">
+          <article class="tile is-child notification is-warning">
+            <div class="content">
+              <form action="#" class="add-form">
+                <p class="subtitle is-3">Добавить величину</p>
+      
+                <div class="field">
+                  <label class="label">Значение эквивалентное 1 метру:</label>
+                  <div class="control">
+                    <input class="input add-form-value" type="text" placeholder="100" required>
+                  </div>
+                </div>
+      
+                <div class="field">
+                  <label class="label">Единицы измерения в формате:</label>
+                  <div class="control">
+                    <input class="input add-form-unit" type="text" placeholder="метр, m" required>
+                  </div>
+                </div>
+      
+                <button class="button is-primary">Добавить</button>
+              </form>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

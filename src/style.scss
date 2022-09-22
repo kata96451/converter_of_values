@@ -1,3 +1,13 @@
-body {
-  font-size: 16px;
+@charset "utf-8";
+@import "../node_modules/bulma/bulma.sass";
+
+.selector-form {
+  display: flex;
+  justify-content: space-around;
 }
+
+.selector-item {
+  max-width: 350px;
+  display: flex;
+}
+
