@@ -41,7 +41,7 @@ module.exports = {
 	"attr-validate": true,
 	"id-no-dup": true,
 	"id-class-no-ad": true,
-	"id-class-style": "underscore",
+	"id-class-style": "bem",
 	"class-no-dup": true,
 	"class-style": false,
 	"id-class-ignore-regex": false,

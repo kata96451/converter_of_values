@@ -1,8 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-plusplus */
-import a from './db.json';
+// import a from './db.json';
 
-console.log(a.units);
 // const values = ['дюйм, in', 'метр, m', 'сантиметр, cm', 'фут, ft'];
 const indexes = {
   m: '1',
@@ -12,8 +11,6 @@ const indexes = {
 };
 
 const addForm = document.querySelector('.add-form');
-
-console.log(addForm);
 
 addForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -32,8 +29,6 @@ addForm.addEventListener('submit', (event) => {
   list[1].insertAdjacentHTML('beforeend', `
   <option>${unitValue}</option>
 `);
-
-  console.log(addFormValue.value, unitValue, indexes);
 });
 
 const selector1 = document.querySelector('.selector1');
@@ -71,7 +66,6 @@ selectorForm.addEventListener('submit', (event) => {
 });
 
 function converteValues(data) {
-  console.log(data.distance.unit, data.convert_to);
   const result = { unit: 'ft', value: 1.64 };
 
   if (data.distance.unit === data.convert_to) {
@@ -81,8 +75,6 @@ function converteValues(data) {
       ((+input1.value / +indexes[data.distance.unit]) * indexes[data.convert_to]).toFixed(6),
     );
   }
-
-  console.log((+input1.value / +indexes[data.distance.unit]) * (indexes[data.convert_to]));
 
   input2.value = result.value;
 
