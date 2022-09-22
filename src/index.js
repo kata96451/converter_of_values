@@ -23,11 +23,11 @@ addForm.addEventListener('submit', (event) => {
 
   indexes[unitValue] = addFormValue.value;
   list[0].insertAdjacentHTML('beforeend', `
-    <option>${unitValue}</option>
+    <option>${addFormUnit.value}</option>
   `);
 
   list[1].insertAdjacentHTML('beforeend', `
-  <option>${unitValue}</option>
+  <option>${addFormUnit.value}</option>
 `);
 });
 
@@ -36,7 +36,6 @@ const selector2 = document.querySelector('.selector2');
 
 const input1 = document.querySelector('.input1');
 const input2 = document.querySelector('.input2');
-input1.value = '2';
 
 const selectorForm = document.querySelector('.selector-form');
 
