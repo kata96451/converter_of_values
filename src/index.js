@@ -1,5 +1,6 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-plusplus */
+import fs from 'browserify-fs';
 // import a from './db.json';
 
 // const values = ['дюйм, in', 'метр, m', 'сантиметр, cm', 'фут, ft'];
@@ -10,6 +11,17 @@ const indexes = {
   ft: '3.28084',
 };
 
+fs.mkdir('/home', () => {
+  fs.writeFile('/home/hello-world.txt', 'Hello world!\n', () => {
+    fs.readFile('/home/hello-world.txt', 'utf-8', (err, data) => {
+      console.log(data);
+    });
+  });
+});
+
+fs.readFile('./db.json', 'utf-8', (err, data) => {
+  console.log(data);
+});
 const addForm = document.querySelector('.add-form');
 
 addForm.addEventListener('submit', (event) => {
