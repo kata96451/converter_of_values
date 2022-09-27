@@ -1,9 +1,3 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-plusplus */
-import fs from 'browserify-fs';
-// import a from './db.json';
-
-// const values = ['дюйм, in', 'метр, m', 'сантиметр, cm', 'фут, ft'];
 const indexes = {
   m: '1',
   cm: '100',
@@ -11,17 +5,6 @@ const indexes = {
   ft: '3.28084',
 };
 
-fs.mkdir('/home', () => {
-  fs.writeFile('/home/hello-world.txt', 'Hello world!\n', () => {
-    fs.readFile('/home/hello-world.txt', 'utf-8', (err, data) => {
-      console.log(data);
-    });
-  });
-});
-
-fs.readFile('./db.json', 'utf-8', (err, data) => {
-  console.log(data);
-});
 const addForm = document.querySelector('.add-form');
 
 addForm.addEventListener('submit', (event) => {
@@ -41,6 +24,8 @@ addForm.addEventListener('submit', (event) => {
   list[1].insertAdjacentHTML('beforeend', `
   <option>${addFormUnit.value}</option>
 `);
+
+  event.target.reset();
 });
 
 const selector1 = document.querySelector('.selector1');
@@ -50,6 +35,22 @@ const input1 = document.querySelector('.input1');
 const input2 = document.querySelector('.input2');
 
 const selectorForm = document.querySelector('.selector-form');
+
+const converteValues = (data) => {
+  const result = {};
+
+  if (data.distance.unit === data.convert_to) {
+    result.value = data.distance.value;
+  } else {
+    result.value = Number(
+      ((+input1.value / +indexes[data.distance.unit]) * indexes[data.convert_to]).toFixed(6),
+    );
+  }
+
+  input2.value = result.value;
+
+  return input2.value;
+};
 
 selectorForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -75,19 +76,3 @@ selectorForm.addEventListener('submit', (event) => {
 
   converteValues(convertingValues);
 });
-
-function converteValues(data) {
-  const result = { unit: 'ft', value: 1.64 };
-
-  if (data.distance.unit === data.convert_to) {
-    result.value = data.distance.value;
-  } else {
-    result.value = Number(
-      ((+input1.value / +indexes[data.distance.unit]) * indexes[data.convert_to]).toFixed(6),
-    );
-  }
-
-  input2.value = result.value;
-
-  return input2.value;
-}
